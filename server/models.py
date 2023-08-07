@@ -9,11 +9,13 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    password = db.Column(db.String)
+    username = db.Column(db.String)
     email = db.Column(db.String)
     age = db.Column(db.Integer)
 
     _password_hash = db.Column(db.String)
+
+    serialize_rules = ('-password_hash')
 
     @property
     def password_hash(self):
