@@ -23,7 +23,21 @@ class User(db.Model, SerializerMixin):
     
     @password_hash.setter
     def password_hash(self, new_password):
-        byte_object = new_password.encode('utf-8')
-        encrypted_hash_object = bcrypt.generate_password_hash(byte_object)
-        hash_object = encrypted_hash_object.decode('utf-8')
-        self._password_hash = hash_object
+        self._password_hash = new_password
+        #encryption
+        # byte_object = new_password.encode('utf-8')
+        # encrypted_hash_object = bcrypt.generate_password_hash(byte_object)
+        # hash_object = encrypted_hash_object.decode('utf-8')
+        # self._password_hash = hash_object
+
+class HauntedLocation(db.Model, SerializerMixin):
+    __tablename__ = 'haunted_loactions'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    location = db.Column(db.String)
+    description = db.Column(db.String)
+    image = db.Column(db.String)
+
+    
+        
