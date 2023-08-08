@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+
 :root {
-  --bg: #282c34;
+  --bg: #ffffff;
   --header: #fff;
   --link: #61dafb;
   --text: hsla(0, 0%, 100%, 0.88);
@@ -13,4 +16,30 @@
   border-radius: 6px;
   color: white;
   font-size: 20px;
+}
+
+body {
+  /* cursor: url('https://www.freeiconspng.com/uploads/bloody-knife-png-23.png'), auto; */
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-family: 'Creepster', cursive; 
+  font-size: 18px;
+  text-align: center;
+}
+
+.haunted-house-card {
+  text-align: center;
+  border: rgb(255, 0, 0) solid 1px;
+  padding: 1rem;
+  width: 30rem;
+  height: 25rem;
+  display: inline-flexbox;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #e04b52;
+}
+
+.haunted-house-image {
+  justify-self: center;
+  height: 12rem;
+  width: auto;
 }
