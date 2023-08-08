@@ -5,7 +5,7 @@
 # Remote library imports
 from flask import request, make_response
 from flask_restful import Resource
-from models import User
+from models import User, HauntedLocation
 
 # Local imports
 from config import app, db, api
@@ -35,6 +35,14 @@ class Users(Resource):
         return make_response(new_user.to_dict(), 201)
 
 api.add_resource(Users, '/users')
+
+class HauntedLocations(Resource):
+
+    def get(self):
+        locations = [loc.to_dict() for loc in HauntedLocation.query.all()]
+        return make_response(locations, 200)
+
+api.add_resource(HauntedLocations, '/haunted_locations')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
