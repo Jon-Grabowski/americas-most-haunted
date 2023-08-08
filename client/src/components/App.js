@@ -8,6 +8,7 @@ import NewHouseForm from './NewHouseForm'
 
 
 
+
 function App() {
 
   const [houseArray, setHouseArray] = useState([])
@@ -17,6 +18,10 @@ function App() {
     .then(r => r.json())
     .then(houses => setHouseArray(houses))
   },[])
+
+  const addNewHouse = (newHouse) => {
+    setHouseArray([...houseArray, newHouse])
+  }
   
   return (
     <div>
