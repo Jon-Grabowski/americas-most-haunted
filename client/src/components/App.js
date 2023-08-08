@@ -5,6 +5,8 @@ import Home from './Home'
 import HauntedHouseList from './HauntedHouseList'
 
 
+
+
 function App() {
 
   const [houseArray, setHouseArray] = useState([])
@@ -24,7 +26,7 @@ function App() {
         </Route>
         <Route path='/haunted_houses'>
           <HauntedHouseList houseArray={houseArray}/>
-        </Route>
+        </Route> 
       </Switch>
     </div>
   )
