@@ -38,6 +38,6 @@ class HauntedLocation(db.Model, SerializerMixin):
     location = db.Column(db.String)
     description = db.Column(db.String)
     image = db.Column(db.String)
-
+    
     
         

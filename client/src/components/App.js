@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import HauntedHouseList from "./HauntedHouseList";
+import Home from './Home'
+import HauntedHouseList from './HauntedHouseList'
+
+
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
     <div>
       <NavBar/>
       <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
         <Route path='/haunted_houses'>
           <HauntedHouseList houseArray={houseArray}/>
         </Route> 
