@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import HauntedHousePage from './HauntedHousePage'
+import HauntedHouseList from "./HauntedHouseList";
 
 
 function App() {
 
+  const [houseArray, setHouseArray] = useState([])
+
   useEffect(()=>{
     fetch('/haunted_locations')
     .then(r => r.json())
-    .then(houses => console.log(houses))
+    .then(houses => setHouseArray(houses))
   },[])
   
   return (
@@ -17,7 +19,7 @@ function App() {
       <NavBar/>
       <Switch>
         <Route path='/haunted_houses'>
-          <HauntedHousePage/>
+          <HauntedHouseList houseArray={houseArray}/>
         </Route> 
       </Switch>
     </div>
