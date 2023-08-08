@@ -83,4 +83,4 @@ function NewHouseForm({addNewHouse}) {
     )
 }
 
-export default NewHouseForm
+export default NewHouseForm;
