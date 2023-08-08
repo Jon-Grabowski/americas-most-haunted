@@ -5,3 +5,12 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
+.nav-links {
+  margin: 5px;
+  padding: 9px;
+  margin-right: 20px;
+  background-color: rgb(43, 40, 40);
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+}
