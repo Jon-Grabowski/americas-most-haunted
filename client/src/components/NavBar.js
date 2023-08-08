@@ -15,7 +15,7 @@ function NavBar() {
         }else if (selection === 'add') {
             history.push('/add_location')
         }
-        
+
     }
 
 
@@ -27,16 +27,8 @@ function NavBar() {
                 <option value="home">Home</option>
                 <option value="locations">Haunted Locations</option>
                 <option value="add">Add New Location</option>
-                {/* <option><NavLink exact to="/" className="menu-links">Home</NavLink></option>
-                <option><NavLink to='/haunted_houses' className="menu-links">Haunted Locations</NavLink></option>
-                <option><NavLink to="/monsterlist" className="menu-links">Add New Location</NavLink></option> */}
             </select>        
         </div>
-        {/* <div>
-            <NavLink exact to="/" className="nav-links">Home</NavLink>
-            <NavLink to='/haunted_houses' className="nav-links">Haunted Locations</NavLink>
-            <NavLink to="/monsterlist" className="nav-links">Add New Location</NavLink>
-        </div> */}
         <div className='header'>
             <h1>
             America's Most Haunted
