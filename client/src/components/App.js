@@ -3,9 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from './Home'
 import HauntedHouseList from './HauntedHouseList'
-
-
-
+import NewHouseForm from "./NewHouseForm";
 
 function App() {
 
@@ -16,6 +14,10 @@ function App() {
     .then(r => r.json())
     .then(houses => setHouseArray(houses))
   },[])
+
+  const addNewHouse = (newHouse) => {
+    setHouseArray([...houseArray, newHouse])
+  }
   
   return (
     <div>
