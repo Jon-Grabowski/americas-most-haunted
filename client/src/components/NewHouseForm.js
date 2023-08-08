@@ -31,7 +31,7 @@ function NewHouseForm({addNewHouse}) {
             description: houseDescription,
             image: houseImage,
         }
-        fetch('/houses', {
+        fetch('/haunted_locations', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(newHautedLocation)

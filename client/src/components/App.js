@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Home from './Home'
 import HauntedHouseList from './HauntedHouseList'
 import NewHouseForm from './NewHouseForm'
+import HauntedHouseDetail from "./HauntedHouseDetail";
 
 
 
@@ -30,8 +31,11 @@ function App() {
         <Route exact path='/'>
           <Home/>
         </Route>
-        <Route path='/haunted_houses'>
+        <Route exact path='/haunted_houses'>
           <HauntedHouseList houseArray={houseArray}/>
+        </Route>
+        <Route path='/haunted_houses/:id'>
+          <HauntedHouseDetail />
         </Route>
         <Route path='/add_location'>
           <NewHouseForm/>
