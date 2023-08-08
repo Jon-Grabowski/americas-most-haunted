@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from './Home'
 import HauntedHouseList from './HauntedHouseList'
+import NewHouseForm from './NewHouseForm'
 
 
 
@@ -26,7 +27,10 @@ function App() {
         </Route>
         <Route path='/haunted_houses'>
           <HauntedHouseList houseArray={houseArray}/>
-        </Route> 
+        </Route>
+        {/* <Route path='/add_location'>
+          <NewHouseForm/>
+        </Route> */}
       </Switch>
     </div>
   )
