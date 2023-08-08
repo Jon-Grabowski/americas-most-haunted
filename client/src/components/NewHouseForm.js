@@ -36,7 +36,6 @@ function NewHouseForm({addNewHouse}) {
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(newHautedLocation)
         })
-        // TODO Fix these .then(s), second one currently just console logs, but needs to connected to other things
             .then(r => r.json())
             .then(newHauntedLocation => addNewHouse(newHauntedLocation))
             e.target.reset()
@@ -49,30 +48,38 @@ function NewHouseForm({addNewHouse}) {
             >
                 <h3>Visted a House that's not already here?</h3>
                 <h3>Add that Haunted Location!</h3>
-                <input
-                    type="text"
-                    name="name"
-                    label="Name of Location"
-                    onChange={handleNameChange}
-                />
-                <input 
-                    type="text"
-                    name="location"
-                    label="Where is this located?"
-                    onChange={handleLocationChange}
-                />
-                <input 
-                    type="text"
-                    name="description"
-                    label="Description of Location"
-                    onChange={handleDescriptionChange}
-                />
-                <input 
-                    type="text"
-                    name="image"
-                    label="Image of Location"
-                    onChange={handleImageChange}
-                />
+                <label> Location Name:
+                    <input
+                        type="text"
+                        name="name"
+                        onChange={handleNameChange}
+                    />
+                </label>
+                <br />
+                <label>Location City and State:
+                    <input 
+                        type="text"
+                        name="location"
+                        onChange={handleLocationChange}
+                    />
+                </label>
+                <br />
+                <label>Location Description:
+                    <input 
+                        type="text"
+                        name="description"
+                        onChange={handleDescriptionChange}
+                    />
+                </label>
+                <br />
+                <label>Location Image:
+                    <input 
+                        type="text"
+                        name="image"
+                        onChange={handleImageChange}
+                    />
+                </label>
+                <br />
                 <input
                     type="submit"
                     name="submit"
