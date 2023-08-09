@@ -5,6 +5,8 @@ import Home from './Home'
 import HauntedHouseList from './HauntedHouseList'
 import NewHouseForm from './NewHouseForm'
 import HauntedHouseDetail from "./HauntedHouseDetail";
+import SignUp from "./SignUp";
+import Login from "./Login";
 
 
 
@@ -13,6 +15,7 @@ import HauntedHouseDetail from "./HauntedHouseDetail";
 function App() {
 
   const [houseArray, setHouseArray] = useState([])
+  const [user, setUser] = useState(null)
 
   useEffect(()=>{
     fetch('/haunted_locations')
@@ -26,10 +29,10 @@ function App() {
   
   return (
     <div>
-      <NavBar/>
+      <NavBar user={user} setUser={setUser}/>
       <Switch>
         <Route exact path='/'>
-          <Home/>
+          <Home user={user}/>
         </Route>
         <Route exact path='/haunted_houses'>
           <HauntedHouseList houseArray={houseArray}/>
@@ -39,6 +42,12 @@ function App() {
         </Route>
         <Route path='/add_location'>
           <NewHouseForm addNewHouse={addNewHouse}/>
+        </Route>
+        <Route path='/signup'>
+          <SignUp setUser={setUser}/>
+        </Route>
+        <Route path='/login'>
+          <Login setUser={setUser}/>
         </Route>
       </Switch>
     </div>

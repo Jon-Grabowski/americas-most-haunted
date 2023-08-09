@@ -1,5 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 
 from config import db, bcrypt
 
@@ -15,7 +16,10 @@ class User(db.Model, SerializerMixin):
 
     _password_hash = db.Column(db.String)
 
-    serialize_rules = ('-password_hash')
+    serialize_rules = ('-_password_hash',)
+
+    visits = db.relationship('Visit', back_populates='user', cascade='all, delete-orphan')
+    haunted_locations = association_proxy('visits', 'haunted_location')
 
     @property
     def password_hash(self):
@@ -23,15 +27,15 @@ class User(db.Model, SerializerMixin):
     
     @password_hash.setter
     def password_hash(self, new_password):
-        self._password_hash = new_password
+        # self._password_hash = new_password
         #encryption
-        # byte_object = new_password.encode('utf-8')
-        # encrypted_hash_object = bcrypt.generate_password_hash(byte_object)
-        # hash_object = encrypted_hash_object.decode('utf-8')
-        # self._password_hash = hash_object
+        byte_object = new_password.encode('utf-8')
+        encrypted_hash_object = bcrypt.generate_password_hash(byte_object)
+        hash_object = encrypted_hash_object.decode('utf-8')
+        self._password_hash = hash_object
     
-    visits = db.relationship('Visit', back_populates='user', cascade='all, delete-orphan')
-    haunted_locations = association_proxy('visits', 'haunted_location')
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(self._password_hash, password.encode('utf-8'))
 
 class HauntedLocation(db.Model, SerializerMixin):
     __tablename__ = 'haunted_locations'
@@ -45,6 +49,10 @@ class HauntedLocation(db.Model, SerializerMixin):
     visits = db.relationship('Visit', back_populates='haunted_location', cascade='all, delete-orphan')
     users = association_proxy('visits', 'user')
 
+    @hybrid_property
+    def visits_count(self):
+        length = len(self.visits)
+        return length
 class Visit(db.Model, SerializerMixin):
     __tablename__ = 'visits'
 
@@ -56,3 +64,5 @@ class Visit(db.Model, SerializerMixin):
 
     user = db.relationship('User', back_populates='visits')
     haunted_location = db.relationship('HauntedLocation', back_populates="visits")
+
+    
