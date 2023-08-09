@@ -44,6 +44,21 @@ class HauntedLocations(Resource):
     
     def post(self):
         data = request.json
+        try:
+            new_location = HauntedLocation(
+                name = data['name'],
+                location = data['location'],
+                description = data['description'],
+                image = data['image']
+            )
+        except:
+            return make_response({'error': 'invalid inputs'}, 422)
+
+        db.session.add(new_location)
+        db.session.commit()
+        return make_response(new_location.to_dict(), 201) 
+
+
 
 
 api.add_resource(HauntedLocations, '/haunted_locations')

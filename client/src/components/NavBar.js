@@ -30,7 +30,7 @@ function NavBar() {
             </select>        
         </div>
         {/* <div className='nav-bar-header'>  */}
-                <h1 class="title">America's Most Haunted</h1>            
+                <h1 className="title">America's Most Haunted</h1>            
         {/* </div> */}
         <div className='nav-bar-links'>
             <NavLink exact to="/login" className="nav-links">Login</NavLink>
