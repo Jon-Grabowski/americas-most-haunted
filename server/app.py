@@ -68,7 +68,7 @@ class HauntedLocationsById(Resource):
     def get(self, id):
         house = HauntedLocation.query.filter_by(id = id).first()
         if house:
-            return make_response(house.to_dict(rules = ('-visits', )), 200)
+            return make_response(house.to_dict(rules = ('-visits.haunted_location', '-visits.user.visits')), 200)
         return make_response({'error: Not Found'}, 404)
 
 api.add_resource(HauntedLocationsById, '/haunted_locations/<int:id>')    
