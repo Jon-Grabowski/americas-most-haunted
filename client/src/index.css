@@ -109,10 +109,11 @@ body {
     font-size: 18px;
     text-align: left;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: flex;
-    /* font-color: ; */
-  }
+}
 
+#nav-user-name{
+  margin-right: 10px;
+}
 
 .list-of-locations{
   color: rgba(216, 168, 168, 0.757);

@@ -1,13 +1,16 @@
 import {useState} from "react";
+import { useHistory } from "react-router-dom";
 // Not currently needed, stretch goal:
-import { useFormik } from "formik";
-import * as yup from "yup";
 
-function SignUp() {
+
+function SignUp({setUser}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
     const [age, setAge] = useState("")
+    
+
+    let history = useHistory()
 
     function handleUsernameChange(e) {
         setUsername(e.target.value)
@@ -28,7 +31,6 @@ function SignUp() {
     function handleSubmit(e) {
         e.preventDefault()
         const newUser = {
-            key: username,
             username: username,
             password: password,
             email: email,
@@ -43,12 +45,15 @@ function SignUp() {
         // FIXME Mainly the issue is that the user is currently just console logged and errors are not handled
         .then(r => {
             if (r.ok) {
-                r.json().then((newUser) => console.log(newUser))
+                r.json().then((newUser) => {
+                    setUser(newUser)
+                    history.push('/')
+                })
             }
             else {
-                console.log("Handle Errors")
             }
         })
+        e.target.reset()
     }
 
     
