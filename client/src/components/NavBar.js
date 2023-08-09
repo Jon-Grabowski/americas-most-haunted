@@ -21,7 +21,7 @@ function NavBar() {
 
     return (
     <nav>
-        <div className="dropdown">            
+        <div className="nav-bar-dropdown">            
             <select onChange={handleChange}>
                 <option value=''>Menu</option>
                 <option value="home">Home</option>
@@ -29,12 +29,10 @@ function NavBar() {
                 <option value="add">Add New Location</option>
             </select>        
         </div>
-        <div className='header'>
-            
-                <h1 class="title">America's Most Haunted</h1>
-            
-        </div>
-        <div>
+        {/* <div className='nav-bar-header'>  */}
+                <h1 className="title">America's Most Haunted</h1>            
+        {/* </div> */}
+        <div className='nav-bar-links'>
             <NavLink exact to="/login" className="nav-links">Login</NavLink>
             <NavLink to='/signup' className="nav-links">Sign Up</NavLink>
         </div>

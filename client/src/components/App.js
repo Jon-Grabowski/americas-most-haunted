@@ -38,7 +38,7 @@ function App() {
           <HauntedHouseDetail />
         </Route>
         <Route path='/add_location'>
-          <NewHouseForm/>
+          <NewHouseForm addNewHouse={addNewHouse}/>
         </Route>
       </Switch>
     </div>
