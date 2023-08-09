@@ -9,7 +9,7 @@ function HauntedHouseDetail() {
         fetch(`/haunted_locations/${id}`)
         .then(r => r.json())
         .then(house => setHouse(house))
-      },[])
+    },[])
 
     return (
         <div>
@@ -19,7 +19,7 @@ function HauntedHouseDetail() {
             alt={house.name}
             className="haunted-house-image-detail"
             />
-            <p>{house.description}</p>
+            <p className="house-description">{house.description}</p>
         </div>
     );
 }
