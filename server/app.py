@@ -32,14 +32,14 @@ class Users(Resource):
         db.session.add(new_user)
         db.session.commit()
 
-        return make_response(new_user.to_dict(), 201)
+        return make_response(new_user.to_dict(rules = ('-visits', )), 201)
 
 api.add_resource(Users, '/users')
 
 class HauntedLocations(Resource):
 
     def get(self):
-        locations = [loc.to_dict() for loc in HauntedLocation.query.all()]
+        locations = [loc.to_dict(rules = ('-visits', )) for loc in HauntedLocation.query.all()]
         return make_response(locations, 200)
     
     def post(self):
@@ -56,7 +56,7 @@ class HauntedLocations(Resource):
 
         db.session.add(new_location)
         db.session.commit()
-        return make_response(new_location.to_dict(), 201) 
+        return make_response(new_location.to_dict(rules = ('-visits', )), 201) 
 
 
 
@@ -68,7 +68,7 @@ class HauntedLocationsById(Resource):
     def get(self, id):
         house = HauntedLocation.query.filter_by(id = id).first()
         if house:
-            return make_response(house.to_dict(), 200)
+            return make_response(house.to_dict(rules = ('-visits', )), 200)
         return make_response({'error: Not Found'}, 404)
     
         
