@@ -29,15 +29,30 @@ class User(db.Model, SerializerMixin):
         # encrypted_hash_object = bcrypt.generate_password_hash(byte_object)
         # hash_object = encrypted_hash_object.decode('utf-8')
         # self._password_hash = hash_object
+    
+    visits = db.relationship('Visit', back_populates='user', cascade='all, delete-orphan')
+    haunted_locations = association_proxy('visits', 'haunted_location')
 
 class HauntedLocation(db.Model, SerializerMixin):
-    __tablename__ = 'haunted_loactions'
+    __tablename__ = 'haunted_locations'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     location = db.Column(db.String)
     description = db.Column(db.String)
     image = db.Column(db.String)
-    
-    
-        
+
+    visits = db.relationship('Visit', back_populates='haunted_location', cascade='all, delete-orphan')
+    users = association_proxy('visits', 'user')
+
+class Visit(db.Model, SerializerMixin):
+    __tablename__ = 'visits'
+
+    id = db.Column(db.Integer, primary_key=True)
+    date=db.Column(db.String)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    haunted_location_id = db.Column(db.Integer, db.ForeignKey('haunted_locations.id'))
+
+    user = db.relationship('User', back_populates='visits')
+    haunted_location = db.relationship('HauntedLocation', back_populates="visits")
