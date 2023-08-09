@@ -41,8 +41,24 @@ class HauntedLocations(Resource):
     def get(self):
         locations = [loc.to_dict() for loc in HauntedLocation.query.all()]
         return make_response(locations, 200)
+    
+    def post(self):
+        data = request.json
+
 
 api.add_resource(HauntedLocations, '/haunted_locations')
+
+class HauntedLocationsById(Resource):
+
+    def get(self, id):
+        house = HauntedLocation.query.filter_by(id = id).first()
+        if house:
+            return make_response(house.to_dict(), 200)
+        return make_response({'error: Not Found'}, 404)
+    
+        
+
+api.add_resource(HauntedLocationsById, '/haunted_locations/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

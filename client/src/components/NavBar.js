@@ -21,7 +21,7 @@ function NavBar() {
 
     return (
     <nav>
-        <div class="dropdown">            
+        <div className="dropdown">            
             <select onChange={handleChange}>
                 <option value=''>Menu</option>
                 <option value="home">Home</option>

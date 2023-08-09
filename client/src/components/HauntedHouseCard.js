@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 function HauntedHouseCard( {id, name, image, location }) {
+
+    let history = useHistory()
+
+    function handleClick() {
+        history.push(`/haunted_houses/${id}`)
+    }
     return (
     <div className="haunted-house-card">
         <h2>{name}</h2>
@@ -11,7 +17,7 @@ function HauntedHouseCard( {id, name, image, location }) {
             className="haunted-house-image"
         />
         <br/>
-        <button> More details! </button>
+        <button onClick={handleClick}> More details! </button>
             {/* <p>{visits} Visited </p>
         <button className="visited-btn"> Visited {"X"}</button> */}
     </div>
