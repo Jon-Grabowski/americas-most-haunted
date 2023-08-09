@@ -19,7 +19,7 @@
 }
 
 body {
-  /* cursor: url('https://www.freeiconspng.com/uploads/bloody-knife-png-23.png'), auto; */
+  cursor: url('https://www.freeiconspng.com/uploads/bloody-knife-png-23.png'), auto;
   background-color: black;
   color: rgb(255, 255, 255);
   font-family: 'Creepster', cursive; 
@@ -29,17 +29,37 @@ body {
 
 .haunted-house-card {
   text-align: center;
-  border: rgb(255, 0, 0) solid 1px;
+  border: rgb(119, 53, 53) solid 1px;
   padding: 1rem;
-  width: 30rem;
+  width: 25rem;
   height: 25rem;
-  display: inline-flexbox;
+  display: center;
   margin: 1rem 2rem;
   box-shadow: 3px 4px #e04b52;
+}
+.house-card-container{
+  border: rgb(119, 53, 53) solid 1px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .haunted-house-image {
   justify-self: center;
   height: 12rem;
   width: auto;
+}
+
+.title {
+  font-size: 60px;
+  color: #9f1e1e;
+  text-shadow: 2px 2px 4px rgb(247, 245, 245);
+}
+
+.about-section{
+  border: rgb(255, 0, 0) solid 1px;
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: 
+  
 }

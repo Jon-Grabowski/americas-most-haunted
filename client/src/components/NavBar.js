@@ -30,10 +30,9 @@ function NavBar() {
             </select>        
         </div>
         <div className='header'>
-            <h1>
-            America's Most Haunted
-            {/* <span className="logo" role="img"> :skull:  </span> */}
-            </h1>
+            
+                <h1 class="title">America's Most Haunted</h1>
+            
         </div>
         <div>
             <NavLink exact to="/login" className="nav-links">Login</NavLink>
