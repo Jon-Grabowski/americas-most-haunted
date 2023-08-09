@@ -98,6 +98,9 @@ body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#nav-user-name{
+  margin-right: 10px;
+}
 /* .list-of-locations{
   width: 100px;
   height: 100px;

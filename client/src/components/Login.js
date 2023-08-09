@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-//Not currently needed, stretch goal:
-import { useFormik } from "formik";
-import * as yup from "yup";
+import { useHistory } from "react-router-dom";
 
-function Login() {
+//Not currently needed, stretch goal:
+
+
+function Login({setUser}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [badLogin, setBadLogin] = useState(false)
+
+    let history = useHistory()
 
     function handleUsernameChange(e) {
         setUsername(e.target.value)
@@ -16,10 +20,30 @@ function Login() {
     }
 
     // TODO Finish submit using authorization
-    // function handleSubmit(e) {
-    //     e.preventDefault()
-
-    // }
+    function handleSubmit(e) {
+        e.preventDefault()
+        const user = {
+            username: username,
+            password: password
+        }
+        fetch('/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(user)
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json().then((user) => {
+                    setUser(user)
+                    setBadLogin(false)
+                    history.push('/')
+                })
+            }
+            else {
+                setBadLogin(true)
+            }
+        })
+    }
     
     return (
         <>
@@ -44,9 +68,10 @@ function Login() {
                 <input 
                     type="submit"
                     name="submit"
-                    value="Create New User"
+                    value="Login"
                 />
             </form>
+            {badLogin ? <p>Incorrect username or password</p>: null}
         </>
     )
 }
