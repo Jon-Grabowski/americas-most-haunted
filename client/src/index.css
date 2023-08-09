@@ -60,6 +60,27 @@ body {
   border: rgb(255, 0, 0) solid 1px;
   font-size: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  display: 
-  
+  /* display: 
+   */
 }
+
+.haunted-house-image-detail{
+  font-size: 14px;
+  border: rgb(240, 8, 8) solid 1px;
+}
+
+.house-description{
+  border: rgb(255, 0, 0) solid 1px;
+  font-size: 18px;
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+/* .list-of-locations{
+  width: 100px;
+  height: 100px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+} */
