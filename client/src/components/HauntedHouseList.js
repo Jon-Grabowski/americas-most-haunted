@@ -14,7 +14,7 @@ function HauntedHouseList({houseArray}) {
         )
     })
     return (
-        <div>
+        <div className='house-card-container'>
             {houseComponents}
         </div>
     )

@@ -1,11 +1,15 @@
 import React from "react";
+import About from "./About"
 
 function Home() {
     return (
         <div>
-            <h1>Home Page</h1>
+
+            <div className="about-section"><About/> </div>
+            
         </div>
     );
 }
 
 export default Home;
+
