@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 :root {
   --bg: #ffffff;
   --header: #fff;
@@ -55,6 +54,7 @@ body {
   margin: 1rem 2rem;
   box-shadow: 3px 4px #e04b52;
 }
+
 .house-card-container{
   border: rgb(119, 53, 53) solid 1px;
   display: flex;
@@ -69,12 +69,12 @@ body {
 }
 
 .title {
-  border: rgb(119, 53, 53) solid 1px;
-  font-size: 80px;
+  /* border: rgb(119, 53, 53) solid 1px; */
+  font-size: 50px;
   color: #9f1e1e;
   text-shadow: 2px 2px 4px rgb(247, 245, 245);
-  vertical-align: top; 
-  
+  vertical-align: center; 
+  display: flex;
 }
 
 #nav-title{
@@ -82,29 +82,48 @@ body {
 }
 
 .about-section{
-  border: rgb(255, 0, 0) solid 1px;
-  font-size: 25px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border: rgb(255, 0, 0) dotted 1px;
+  color: rgba(243, 8, 8, 0.778);
+  font-size: 30px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  display: inline-flexbox;
+  place-content: center;
+  background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; 
+  margin: 0;
+  padding: 0;
+  align-content: space-around;
+  text-shadow: 1px 1px 0px rgb(0, 0, 0);
 }
   .haunted-house-image-detail{
     font-size: 14px;
     border: rgb(240, 8, 8) solid 1px;
+    
   }
   
   .house-description{
     border: rgb(255, 0, 0) solid 1px;
     font-size: 18px;
-    text-align: center;
+    text-align: left;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #nav-user-name{
   margin-right: 10px;
 }
-/* .list-of-locations{
+
+.list-of-locations{
+  color: rgba(216, 168, 168, 0.757);
   width: 100px;
-  height: 100px;
-  border: 15px solid green;
+  height: 190px;
+  border: 3px dotted rgb(179, 8, 51);
   padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 60px;
   margin: 20px;
-} */
+  flex-direction: column;
+  display: inline-flex;
+}
