@@ -7,15 +7,33 @@
   --link: #61dafb;
   --text: hsla(0, 0%, 100%, 0.88);
 }
+.nav-bar-links{
+  display: flex;
+  align-items: center;
+}
 
 .nav-links {
-  margin: 5px;
+  padding-top: 300px;
   padding: 9px;
   margin-right: 20px;
   background-color: rgb(43, 40, 40);
   border-radius: 6px;
   color: white;
   font-size: 20px;
+}
+
+.nav-bar-header{
+  border: rgb(119, 53, 53) solid 1px;
+  justify-content: left;
+}
+
+nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  border: rgb(119, 53, 53) solid 1px;
+  
+  
 }
 
 body {
@@ -51,30 +69,33 @@ body {
 }
 
 .title {
-  font-size: 60px;
+  border: rgb(119, 53, 53) solid 1px;
+  font-size: 80px;
   color: #9f1e1e;
   text-shadow: 2px 2px 4px rgb(247, 245, 245);
+  vertical-align: top; 
+  
+}
+
+#nav-title{
+  border: rgb(119, 53, 53) solid 1px;
 }
 
 .about-section{
   border: rgb(255, 0, 0) solid 1px;
   font-size: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  /* display: 
-   */
 }
-
-.haunted-house-image-detail{
-  font-size: 14px;
-  border: rgb(240, 8, 8) solid 1px;
-}
-
-.house-description{
-  border: rgb(255, 0, 0) solid 1px;
-  font-size: 18px;
-  text-align: center;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+  .haunted-house-image-detail{
+    font-size: 14px;
+    border: rgb(240, 8, 8) solid 1px;
+  }
+  
+  .house-description{
+    border: rgb(255, 0, 0) solid 1px;
+    font-size: 18px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* .list-of-locations{

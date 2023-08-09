@@ -7,7 +7,7 @@ function NewHouseForm({addNewHouse}) {
     const [houseImage, setHouseImage] = useState('')
 
     function handleNameChange(e) {
-        setHouseName(e.target.value)
+        setHouseName(e.target.value)   
     }
 
     function handleLocationChange(e) {
@@ -25,12 +25,12 @@ function NewHouseForm({addNewHouse}) {
     function handleSubmit(e) {
         e.preventDefault()
         const newHautedLocation = {
-            key: houseName,
             name: houseName,
             location: houseLocation,
             description: houseDescription,
             image: houseImage,
         }
+        console.log(newHautedLocation)
         fetch('/haunted_locations', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
@@ -44,7 +44,7 @@ function NewHouseForm({addNewHouse}) {
     return(
         <div>
             <form
-                onSumbit={handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <h3>Visted a House that's not already here?</h3>
                 <h3>Add that Haunted Location!</h3>
