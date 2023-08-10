@@ -72,7 +72,7 @@ class HauntedLocationsById(Resource):
     def get(self, id):
         house = HauntedLocation.query.filter_by(id = id).first()
         if house:
-            return make_response(house.to_dict(rules = ('-visits.haunted_location', '-visits.user.visits')), 200)
+            return make_response(house.to_dict(rules = ('-visits.haunted_location', '-visits.user.visits', )), 200)
         return make_response({'error: Not Found'}, 404)
 
 api.add_resource(HauntedLocationsById, '/haunted_locations/<int:id>')
@@ -114,7 +114,7 @@ def login():
         user = User.query.filter_by(username=data['username']).first()
         if user.authenticate(data['password']):
             session['user_id'] = user.id
-            response = make_response(user.to_dict(rules = ('-visits', )), 200)
+            response = make_response(user.to_dict(rules = ('-visits.user', '-visits.haunted_location', '-visits.experience')), 200)
             return response
         else:
             return make_response({'error': 'name or password incorrect'}, 401)

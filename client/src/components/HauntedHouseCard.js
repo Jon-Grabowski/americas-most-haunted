@@ -45,14 +45,13 @@ function HauntedHouseCard( {id, name, image, location, user }) {
             haunted_location_id: id,
             date: date
         }
-        console.log(newVisit)
         fetch('/visits', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newVisit)
         })
         .then(r => r.json())
-        .then(visit => console.log(visit))
+        .then(visit => console.log('hi'))
         setVisitClicked(!visitClicked)
         setSubmitted(!submitted)
     }

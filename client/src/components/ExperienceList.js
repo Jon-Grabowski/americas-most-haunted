@@ -5,7 +5,7 @@ function ExperienceList({house}) {
     const experienceList = house.visits.map((visit) => {
         if (visit.experience) {
             return(
-                <ExperienceCard key={visit.id} visit={visit}/>
+                <ExperienceCard key={visit.id} visit={visit} />
             )
         }
     }) 
