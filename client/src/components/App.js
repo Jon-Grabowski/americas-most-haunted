@@ -19,7 +19,8 @@ function App() {
 
   
   useEffect(()=>{
-    getUser(); //TO GRAB USER IF IN SESSION
+    
+    // getUser(); //TO GRAB USER IF IN SESSION
     fetch('/haunted_locations')
     .then(r => r.json())
     .then(houses => setHouseArray(houses))
@@ -48,7 +49,7 @@ function App() {
           <HauntedHouseList houseArray={houseArray} user={user}/>
         </Route>
         <Route path='/haunted_houses/:id'>
-          <HauntedHouseDetail />
+          <HauntedHouseDetail user = {user}/>
         </Route>
         <Route path='/add_location'>
           <NewHouseForm addNewHouse={addNewHouse}/>
