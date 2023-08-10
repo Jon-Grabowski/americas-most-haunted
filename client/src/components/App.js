@@ -17,11 +17,21 @@ function App() {
   const [houseArray, setHouseArray] = useState([])
   const [user, setUser] = useState(null)
 
+  
   useEffect(()=>{
+    getUser(); //TO GRAB USER IF IN SESSION
     fetch('/haunted_locations')
     .then(r => r.json())
     .then(houses => setHouseArray(houses))
   },[])
+
+  const getUser = () => {
+    fetch("/getuser").then((resp) => {
+      if (resp.ok) {
+        resp.json().then((user) => console.log(user));
+      }
+    });
+  };
 
   const addNewHouse = (newHouse) => {
     setHouseArray([...houseArray, newHouse])
@@ -35,7 +45,7 @@ function App() {
           <Home user={user}/>
         </Route>
         <Route exact path='/haunted_houses'>
-          <HauntedHouseList houseArray={houseArray}/>
+          <HauntedHouseList houseArray={houseArray} user={user}/>
         </Route>
         <Route path='/haunted_houses/:id'>
           <HauntedHouseDetail />
