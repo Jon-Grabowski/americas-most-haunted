@@ -128,6 +128,7 @@ body {
   display: inline-flex;
 }
 
+
 .nav-bar-dropdown {
   display: flex;
   align-items: center;
@@ -143,3 +144,19 @@ body {
   margin-left: 25px;
   z-index: 1;
 }
+
+.ex-card-container{
+  border: 3px solid rgb(179, 8, 51);
+  border-radius: 10px;
+  margin-bottom: 13px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.ex-card-header{
+  border: rgb(255, 0, 0) solid 1px;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+

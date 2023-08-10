@@ -19,6 +19,7 @@ if __name__ == '__main__':
         Visit.query.delete()
         Experience.query.delete()
 
+
         print("Starting seed...")
         
 
