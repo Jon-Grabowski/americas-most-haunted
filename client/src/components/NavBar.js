@@ -7,11 +7,11 @@ function NavBar({user, setUser}) {
 
     const handleClick = () => {
         fetch("/logout", {
-          method: "DELETE",
+        method: "DELETE",
         }).then(() => {
             setUser(null);
         });
-      };
+    };
 
     function handleChange(e) {
         const selection = e.target.value
@@ -23,19 +23,17 @@ function NavBar({user, setUser}) {
         }else if (selection === 'add') {
             history.push('/add_location')
         }
-
     }
-
 
     return (
     <nav>
         <div className="nav-bar-dropdown">            
-            <select onChange={handleChange}>
-                <option value=''>Menu</option>
+            <select className="nav-bar-dropdown-content" onChange={handleChange}>
+                <option value="menu">Menu</option>
                 <option value="home">Home</option>
                 <option value="locations">Haunted Locations</option>
                 <option value="add">Add New Location</option>
-            </select>        
+            </select> 
         </div>
             <h1 className="title">America's Most Haunted</h1>
         {user ?
