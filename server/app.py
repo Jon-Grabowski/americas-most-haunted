@@ -5,7 +5,7 @@
 # Remote library imports
 from flask import request, make_response, session
 from flask_restful import Resource
-from models import User, HauntedLocation, Visit
+from models import User, HauntedLocation, Visit, Experience
 import ipdb
 
 # Local imports
@@ -62,9 +62,6 @@ class HauntedLocations(Resource):
         db.session.commit()
         return make_response(new_location.to_dict(rules = ('-visits', )), 201) 
 
-
-
-
 api.add_resource(HauntedLocations, '/haunted_locations')
 
 class HauntedLocationsById(Resource):
@@ -104,8 +101,73 @@ class Visits(Resource):
         db.session.commit()
         return make_response(new_visit.to_dict(rules = ('-user', '-haunted_location', '-experience')), 201)
 
-
 api.add_resource(Visits, '/visits')
+
+class Experiences(Resource):
+    def get(self):
+        experiences = [e.to_dict() for e in Experience.query.all()]
+        response = make_response(experiences, 200)
+        return response
+
+    def post(self):
+        data = request.get_json()
+
+        try:
+            new_experience = Experience(
+                body=data['body'],
+                rating=data['rating'],
+                visit_id=data['visit_id'],
+            )
+        except:
+            response = make_response({'error': 'Invalid data.'})
+            return response
+
+        db.session.add(new_experience)
+        db.session.commit()
+
+        experience_dict = new_experience.to_dict()
+        response = make_response(experience_dict, 201)
+        return response
+api.add_resource(Experiences, '/experiences')
+
+class ExperienceById(Resource):
+    def patch(self, id):
+        experience = Experience.query.filter_by(id=id).first()
+
+        if not experience:
+            response = make_response({'error': 'Experience not found'}, 404)
+            return response
+
+        data = request.get_json()
+
+        for attr in data: 
+            try:
+                setattr(attr, data, data[attr])
+            except ValueError as e:
+                response = make_response({"errors": [str(e)]})
+                return response
+        
+        db.session.commit()
+
+        experience_dict = experience.to_dict()
+        response = make_response(experience_dict, 202)
+        return response
+    
+    def delete(self, id):
+        experience = Experience.query.filter_by(id=id).first()
+
+        if not experience:
+            response = make_response({'error': 'Experience not found'}, 404)
+            return response
+        
+        db.session.delete(experience)
+        db.session.commit()
+
+        response = make_response({}, 204)
+        return response
+api.add_resource(ExperienceById, '/experiences/<int:id>')
+
+
 
 @app.route('/login', methods=['POST'])
 def login():
