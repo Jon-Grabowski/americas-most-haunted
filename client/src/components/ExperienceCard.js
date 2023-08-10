@@ -11,6 +11,9 @@ function ExperienceCard({visit}) {
             <div className='ex-card-rating'>
                 <p>Scary Rating: {visit.experience.rating} Screams!</p>
             </div>
+            {/* <div className="experience-button">
+                
+            </div> */}
         </div>
     )
 }
