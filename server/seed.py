@@ -64,6 +64,7 @@ if __name__ == '__main__':
         e5 = Experience(body="HOLY SHIT", rating=5, visit_id=3)
         e6 = Experience(body="Okay, I mean I was scared but...", rating=3, visit_id=4)
         e7 = Experience(body="I was so scared, but I was more scared when watching Supernatural", rating=4, visit_id=6)
+        
         experiences = [e1, e2, e3, e4, e5, e6, e7]
         db.session.add_all(experiences)
         db.session.commit()
