@@ -8,6 +8,7 @@ function SignUp({setUser}) {
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
     const [age, setAge] = useState("")
+    const [errorMessage , setErrorMessage] = useState ("")
     
 
     let history = useHistory()
@@ -51,6 +52,8 @@ function SignUp({setUser}) {
                 })
             }
             else {
+                e.preventDefault()
+                setErrorMessage("User not created. Username must be 3 characters or more, email must include @, and you must be 18 or older to sign up.")
             }
         })
         e.target.reset()
@@ -97,6 +100,9 @@ function SignUp({setUser}) {
                     value="Create New User"
                 />
             </form>
+            <div>
+                {errorMessage}
+            </div>
         </>
     )
 }
