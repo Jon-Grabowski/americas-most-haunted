@@ -1,6 +1,8 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
+from sqlalchemy.orm import validates
+
 
 from config import db, bcrypt
 
@@ -36,7 +38,28 @@ class User(db.Model, SerializerMixin):
     
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password.encode('utf-8'))
-
+    
+    @validates('username')
+    def validate_username(self, key, new_username):
+        if type(new_username) is str and len(new_username) >= 3:
+            return new_username
+        else:
+            raise ValueError("Username must be 3 or more characters")
+    
+    @validates('email')
+    def validate_new_email(self, key, new_email):
+        if type(new_email) is str and "@" in new_email:
+            return True
+        else:
+            raise ValueError("Email is invalid, must include '@'.")
+        
+    @validates("age")
+    def validates_age(self, key, new_age):
+        if type(new_age) is int and new_age >= 18:
+            return new_age
+        else:
+            raise ValueError("You must be 18 or over to enter!")
+        
 class HauntedLocation(db.Model, SerializerMixin):
     __tablename__ = 'haunted_locations'
 

@@ -23,12 +23,16 @@ class Users(Resource):
 
     def post(self):
         data = request.json
-        new_user = User(
+        try:
+            new_user = User(
             username = data['username'],
             email = data['email'],
             age = data['age'],
             password_hash = data['password']
         )
+        except ValueError as e:
+            response = make_response({"errors": [str(e)]}, 400)
+            return response
 
         db.session.add(new_user)
         db.session.commit()
@@ -133,7 +137,6 @@ def logout():
 #         return make_response({
 #             "error": "User not found"
 #         }, 404)
-    
 
 
 if __name__ == '__main__':
