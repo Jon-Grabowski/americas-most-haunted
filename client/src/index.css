@@ -70,11 +70,13 @@ body {
 
 .title {
   /* border: rgb(119, 53, 53) solid 1px; */
-  font-size: 50px;
-  color: #9f1e1e;
-  text-shadow: 2px 2px 4px rgb(247, 245, 245);
-  vertical-align: center; 
-  display: flex;
+  font-size: 60px;
+  color: #711818;
+  text-shadow: 2px 2px 1px rgb(247, 245, 245);
+  margin-top: 0;
+  /* vertical-align: top;  */
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 #nav-title{
@@ -82,21 +84,25 @@ body {
 }
 
 .about-section{
-  border: rgb(255, 0, 0) dotted 1px;
-  color: rgba(243, 8, 8, 0.778);
-  font-size: 30px;
-  font-family: 'PT Sans Narrow', sans-serif;
-  display: inline-flexbox;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  color: rgba(239, 232, 232, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   place-content: center;
   background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh; 
-  margin: 0;
+  margin: 0; 
   padding: 0;
   align-content: space-around;
-  text-shadow: 1px 1px 0px rgb(0, 0, 0);
+  text-shadow: 1px 1px 0px rgb(0, 0, 0); 
+  /* text-shadow: 1px 1px 2px rgb(203, 171, 174), 1px 1px 2px rgba(255, 255, 255, 0.5); */
 }
   .haunted-house-image-detail{
     font-size: 14px;
@@ -115,7 +121,7 @@ body {
   margin-right: 10px;
 }
 
-.list-of-locations{
+/* .list-of-locations{
   color: rgba(216, 168, 168, 0.757);
   width: 100px;
   height: 190px;
@@ -126,4 +132,4 @@ body {
   margin: 20px;
   flex-direction: column;
   display: inline-flex;
-}
+} */
