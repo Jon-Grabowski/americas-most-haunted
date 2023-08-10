@@ -5,7 +5,7 @@
 # Remote library imports
 from flask import request, make_response, session
 from flask_restful import Resource
-from models import User, HauntedLocation
+from models import User, HauntedLocation, Visit
 import ipdb
 
 # Local imports
@@ -75,7 +75,37 @@ class HauntedLocationsById(Resource):
             return make_response(house.to_dict(rules = ('-visits.haunted_location', '-visits.user.visits')), 200)
         return make_response({'error: Not Found'}, 404)
 
-api.add_resource(HauntedLocationsById, '/haunted_locations/<int:id>')    
+api.add_resource(HauntedLocationsById, '/haunted_locations/<int:id>')
+
+class VisitByHouse(Resource):
+
+    def get(self, house_id):
+        visits= [visit.to_dict(rules = ('-user', '-haunted_location', '-experience')) for visit in Visit.query.filter_by(haunted_location_id = house_id).all()]
+        if visits:
+            return make_response(visits, 200)
+        return make_response({}, 200)
+
+api.add_resource(VisitByHouse, '/visit_by_house/<int:house_id>')
+
+class Visits(Resource):
+    
+    def post(self):
+        data = request.json
+        try:
+            new_visit = Visit(
+                user_id = data['user_id'],
+                haunted_location_id = data['haunted_location_id'],
+                date = data['date']
+            )
+        except:
+            return make_response({'error': 'invalid inputs'}, 422)
+        
+        db.session.add(new_visit)
+        db.session.commit()
+        return make_response(new_visit.to_dict(rules = ('-user', '-haunted_location', '-experience')), 201)
+
+
+api.add_resource(Visits, '/visits')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -107,6 +137,7 @@ def logout():
 #         return make_response({
 #             "error": "User not found"
 #         }, 404)
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
