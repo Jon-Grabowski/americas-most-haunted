@@ -64,7 +64,7 @@ class Visit(db.Model, SerializerMixin):
 
     user = db.relationship('User', back_populates='visits')
     haunted_location = db.relationship('HauntedLocation', back_populates="visits")
-    experience = db.relationship('Experience', back_populates='visit')
+    experience = db.relationship('Experience', back_populates='visit', uselist=False)
 
     serialize_rules = ('-experience.visit', )
 
@@ -78,7 +78,7 @@ class Experience(db.Model, SerializerMixin):
 
     visit_id = db.Column(db.Integer, db.ForeignKey('visits.id'))
 
-    visit = db.relationship('Visit', back_populates='experience')
+    visit = db.relationship('Visit', back_populates='experience', uselist=False)
 
-    serialize_rules = ('-visit.experience', '-visit.user', 'visit.haunted_location')
+    serialize_rules = ('-visit.experience', '-visit.user', '-visit.haunted_location')
 

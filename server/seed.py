@@ -16,6 +16,8 @@ if __name__ == '__main__':
         print('Clearing database...')
         User.query.delete()
         HauntedLocation.query.delete()
+        Visit.query.delete()
+        Experience.query.delete()
 
 
         print("Starting seed...")

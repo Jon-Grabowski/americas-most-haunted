@@ -4,7 +4,7 @@ function ExperienceList({house}) {
     console.log (house)
     const experienceList = house.visits.map((visit) => {
         return(
-            <h3>{visit.date}</h3>
+            <ExperienceCard key={visit.id} visit={visit}/>
         )
     }) 
 
