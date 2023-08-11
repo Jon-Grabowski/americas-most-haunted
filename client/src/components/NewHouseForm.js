@@ -48,7 +48,7 @@ function NewHouseForm({addNewHouse}) {
             >
                 <h3>Visted a House that's not already here?</h3>
                 <h3>Add that Haunted Location!</h3>
-                <label> Location Name:
+                <label className="location-name"> Location Name:
                     <input
                         type="text"
                         name="name"
@@ -56,7 +56,7 @@ function NewHouseForm({addNewHouse}) {
                     />
                 </label>
                 <br />
-                <label>Location City and State:
+                <label className="city-state">Location City and State:
                     <input 
                         type="text"
                         name="location"
@@ -64,7 +64,7 @@ function NewHouseForm({addNewHouse}) {
                     />
                 </label>
                 <br />
-                <label>Location Description:
+                <label className="location-description">Location Description:
                     <input 
                         type="text"
                         name="description"
@@ -72,7 +72,7 @@ function NewHouseForm({addNewHouse}) {
                     />
                 </label>
                 <br />
-                <label>Location Image:
+                <label className="image">Location Image:
                     <input 
                         type="text"
                         name="image"
@@ -80,7 +80,7 @@ function NewHouseForm({addNewHouse}) {
                     />
                 </label>
                 <br />
-                <input
+                <input className="create-new"
                     type="submit"
                     name="submit"
                     value="Create New Haunted Location"

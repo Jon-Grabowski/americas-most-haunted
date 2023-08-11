@@ -42,7 +42,6 @@ body {
   font-family: 'Creepster', cursive; 
   font-size: 18px;
   text-align: center;
-  /* background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg '); */
 }
 
 .haunted-house-card {
@@ -79,7 +78,6 @@ body {
   /* display: flex; */
   /* flex-direction: column; */
 }
-
 #nav-title{
   border: rgb(119, 53, 53) solid 1px;
 }
@@ -95,7 +93,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   place-content: center;
-  /* background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg'); */
+  background-image: url('https://e0.pxfuel.com/wallpapers/260/1004/desktop-wallpaper-dark-skull-and-background-horror-skull-thumbnail.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -107,10 +105,10 @@ body {
 }
 
 
-.homepage-wrapper{
+/* .homepage-wrapper{
   border: rgb(246, 244, 244) solid 1px;
   background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg');
-}
+} */
 /* .home-image{
   background-size:contain;
   background-position: top;
@@ -158,6 +156,207 @@ body {
 
 #nav-user-name{
   margin-right: 10px;
+}
+
+.create-username{
+    background-color: #000000;
+    border-radius: 28px;
+    border: 1px solid #500d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px 38px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #292626;
+    margin: auto; /* Center horizontally within the parent container */
+}
+.create-password{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 38px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: auto; /* Center horizontally within the parent container */
+}
+.enter-email{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 38px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: auto; /* Center horizontally within the parent container */
+}
+.enter-age{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 38px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: auto; /* Center horizontally within the parent container */
+}
+.create-new-user{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: absolute;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 38px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: auto; /* Center horizontally within the parent container */
+}
+
+.username{
+  position: center;
+  top:40%;
+  background-color:#030303;
+  color: #fff;
+  border:none;
+  border-radius:10px;
+  box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+}
+
+.password{
+  position: center;
+  top:50%;
+  background-color:#030303;
+  color: #fff;
+  border:none;
+  border-radius:10px;
+  box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+}
+
+.login{
+  position: absolute;
+  top:29%;
+  background-color:#ee1717;
+  color: #fff;
+  border:none;
+  border-radius:10px;
+  box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+}
+
+.location-name{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 20px; /* Adjust the width of the padding to make the border shorter */
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: 0 auto; /* Center horizontally within the parent container */
+  max-width: 300px; /* Optional: Set a maximum width for the button */
+}
+
+
+.city-state{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 20px; /* Adjust the width of the padding to make the border shorter */
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: 0 auto; /* Center horizontally within the parent container */
+  max-width: 300px; /* Optional: Set a maximum width for the button */
+}
+
+.location-description{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 20px; /* Adjust the width of the padding to make the border shorter */
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: 0 auto; /* Center horizontally within the parent container */
+  max-width: 300px; /* Optional: Set a maximum width for the button */
+}
+
+.image{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 20px; /* Adjust the width of the padding to make the border shorter */
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: 0 auto; /* Center horizontally within the parent container */
+  max-width: 300px; /* Optional: Set a maximum width for the button */
+}
+
+.create-new{
+  background-color: #000000;
+  border-radius: 28px;
+  border: 1px solid #500d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f1eaea;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 38px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #292626;
+  margin: auto; /* Center horizontally within the parent container */
 }
 
 /* .list-of-locations{
