@@ -49,7 +49,7 @@ class User(db.Model, SerializerMixin):
     @validates('email')
     def validate_new_email(self, key, new_email):
         if type(new_email) is str and "@" in new_email:
-            return True
+            return new_email
         else:
             raise ValueError("Email is invalid, must include '@'.")
         

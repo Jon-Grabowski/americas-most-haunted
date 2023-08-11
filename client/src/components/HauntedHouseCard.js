@@ -13,18 +13,22 @@ function HauntedHouseCard( {id, name, image, location, user }) {
     useEffect(()=>{
         if (user){
         fetch(`/visit_by_house/${id}`)
-        .then(r => r.json())
-        .then(visits => {
-            if (visits){
-                visits.forEach((visit) => {
-                    if (visit.user_id === user.id){
-                        setHasVisited(true)
-                    }
+        .then(r => {
+            if (r.ok) {
+                r.json().then(visits => {
+                    if (visits){
+                        visits.forEach((visit) => {
+                            if (visit.user_id === user.id){
+                                setHasVisited(true)
+                            }
+                        })
+                    }     
                 })
-            }     
+            }
         })
+        
     }
-    },[submitted])
+    },[])
 
     function handleVisitClick() {
         setVisitClicked(!visitClicked)
@@ -51,9 +55,12 @@ function HauntedHouseCard( {id, name, image, location, user }) {
             body: JSON.stringify(newVisit)
         })
         .then(r => r.json())
-        .then(visit => console.log('hi'))
-        setVisitClicked(!visitClicked)
-        setSubmitted(!submitted)
+        .then(visit => {
+            setSubmitted(true)
+            setVisitClicked(!visitClicked)
+            setHasVisited(true)
+            
+        })
     }
 
     
@@ -68,10 +75,10 @@ function HauntedHouseCard( {id, name, image, location, user }) {
         />
         <br/>
         <button onClick={handleClick}> More details! </button>
-        {user ? 
+        {user && 
         hasVisited ?
         <p>You've Visited Here</p> : <button className="visit-btn" onClick={handleVisitClick}> Have you visited this location?</button>
-        : null}
+        }
         {visitClicked ?
         <form onSubmit={handleSubmit}>
             <h2>Add Visit</h2>
