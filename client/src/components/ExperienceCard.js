@@ -45,7 +45,7 @@ function ExperienceCard({visit, user}) {
         fetch(`/experiences/${visit.experience.id}`, {
             method: "DELETE",
         })
-        history.push('/haunted_houses')
+        history.go(0)
     }
     
 
