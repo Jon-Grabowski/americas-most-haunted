@@ -16,6 +16,7 @@ function App() {
 
   const [houseArray, setHouseArray] = useState([])
   const [user, setUser] = useState(null)
+  const [hasVisited, setHasVisited] = useState(false)
 
   
   useEffect(()=>{
@@ -49,7 +50,7 @@ function App() {
           <HauntedHouseList houseArray={houseArray} user={user}/>
         </Route>
         <Route path='/haunted_houses/:id'>
-          <HauntedHouseDetail user = {user}/>
+          <HauntedHouseDetail user = {user} />
         </Route>
         <Route path='/add_location'>
           <NewHouseForm addNewHouse={addNewHouse}/>

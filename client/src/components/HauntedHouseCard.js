@@ -56,26 +56,6 @@ function HauntedHouseCard( {id, name, image, location, user }) {
         setSubmitted(!submitted)
     }
 
-    // function createVisit(){
-    //     const newVisit = {
-    //         username: username,
-    //         password: password,
-    //         email: email,
-    //         age: age
-    //     }
-    //     fetch('/users', {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(newVisit)
-    //     })
-    //     .then(r => {
-    //         if (r.ok) {
-    //             r.json().then((newVisit) => {
-    //                 console.log(newVisit)
-    //             })
-    //         }
-    //     })
-    // }
     
     return (
     <div className="haunted-house-card">
@@ -111,8 +91,6 @@ function HauntedHouseCard( {id, name, image, location, user }) {
                 />
         </form>
         : null}
-            {/* <p>{visits} Visited </p>
-        <button className="visited-btn"> Visited {"X"}</button> */}
     </div>
     );
     }

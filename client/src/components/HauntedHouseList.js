@@ -1,6 +1,6 @@
 import HauntedHouseCard from './HauntedHouseCard'
 
-function HauntedHouseList({houseArray, user}) {
+function HauntedHouseList({houseArray, user, setHasVisited, hasVisited}) {
     const houseComponents = houseArray.map(house => {
         return(
             <HauntedHouseCard
