@@ -9,9 +9,6 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 
 
-
-
-
 function App() {
 
   const [houseArray, setHouseArray] = useState([])
@@ -20,17 +17,20 @@ function App() {
 
   
   useEffect(()=>{
-    
-    // getUser(); //TO GRAB USER IF IN SESSION
+    fetchHouses();
+    fetchUser();
+  },[])
+
+  const fetchHouses = () => {
     fetch('/haunted_locations')
     .then(r => r.json())
     .then(houses => setHouseArray(houses))
-  },[])
+  }
 
-  const getUser = () => {
-    fetch("/getuser").then((resp) => {
+  const fetchUser = () => {
+    fetch("/getUser").then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => console.log(user));
+        resp.json().then((user) => setUser(user));
       }
     });
   };
@@ -39,6 +39,7 @@ function App() {
     setHouseArray([...houseArray, newHouse])
   }
   
+
   return (
     <div>
       <NavBar user={user} setUser={setUser}/>
