@@ -2,10 +2,13 @@ import { useState } from "react";
 
 
 
-function ExperienceCard({visit}) {
+function ExperienceCard({visit, setUserExp, user}) {
     // const[ editExperience , setEditExperience ] = useState("")
     // const[ deleteExperience, setDeleteExperience ] = useState ("")
-
+    if (user)
+        if (user.username === visit.user.username){
+            setUserExp(true)
+        }
     function handleEdit(e) {
             // setEditExperience(e.target.value)
             // console.log(e.target.value)
