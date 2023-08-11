@@ -23,13 +23,14 @@ class Users(Resource):
 
     def post(self):
         data = request.get_json()
+        ipdb.set_trace()
         try:
             user = User(
-            username = data['username'],
-            email = data['email'],
-            age = data['age'],
-            password_hash = data['password']
-        )
+                username = data['username'],
+                email = data['email'],
+                age = int(data['age']),
+                password_hash = data['password']
+            )
         except ValueError as e:
             response = make_response({"errors": [str(e)]}, 400)
             return response
@@ -83,7 +84,7 @@ class VisitByHouse(Resource):
         visits= [visit.to_dict(rules = ('-user', '-haunted_location', '-experience')) for visit in Visit.query.filter_by(haunted_location_id = house_id).all()]
         if visits:
             return make_response(visits, 200)
-        return make_response({}, 200)
+        return make_response([], 200)
 
 api.add_resource(VisitByHouse, '/visit_by_house/<int:house_id>')
 

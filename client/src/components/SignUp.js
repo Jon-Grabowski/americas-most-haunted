@@ -37,6 +37,7 @@ function SignUp({setUser}) {
             email: email,
             age: age
         }
+        console.log(newUser)
         fetch('/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
