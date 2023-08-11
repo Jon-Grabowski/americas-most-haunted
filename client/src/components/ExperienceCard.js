@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-function ExperienceCard({visit}) {
+function ExperienceCard({visit, user}) {
     const [body, setBody] = useState("")
     const [rating, setRating] = useState("")
     const [showForm, setShowForm] = useState(false)
@@ -60,36 +60,36 @@ function ExperienceCard({visit}) {
             <div className='ex-card-rating'>
                 <p>Scary Rating: {visit.experience.rating} Screams!</p>
             </div>
-            <div className="edit-experience-btn">
-
-                <button onClick = {handleShowForm}>Edit your experience 🦇 </button>
-                {showForm ?
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            name="body"
-                            placeholder="Edit Body"
-                            onChange={handleBodyChange}
-                        />
-                        <br />
-                        <select className="scary-select" onChange={handleRatingChange}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <br />
-                        <input 
-                            type="submit"
-                            name="submit"
-                            value="Edit"
-                        />
-                    </form> : null}
-
-            </div>
-            <div className="delete-experience-btn">
-                <button onClick = {handleDelete}>Delete your experience 🦇 </button>
+            <div>
+                <div className="edit-experience-btn">          
+                    <button onClick = {handleShowForm}>Edit your experience 🦇 </button>
+                    {showForm ?
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="body"
+                                placeholder="Edit Body"
+                                onChange={handleBodyChange}
+                            />
+                            <br />
+                            <select className="scary-select" onChange={handleRatingChange}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <br />
+                            <input 
+                                type="submit"
+                                name="submit"
+                                value="Edit"
+                            />
+                        </form> : null}
+                </div>
+                <div className="delete-experience-btn">
+                    <button onClick = {handleDelete}>Delete your experience 🦇 </button>
+                </div>
             </div>
         </div>
     )

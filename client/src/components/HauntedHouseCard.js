@@ -73,22 +73,20 @@ function HauntedHouseCard( {id, name, image, location, user }) {
         <p>You've Visited Here</p> : <button className="visit-btn" onClick={handleVisitClick}> Have you visited this location?</button>
         : null}
         {visitClicked ?
-        <form
-        onSubmit={handleSubmit}
-    >
-        <h2>Add Visit</h2>
-        <input
-            type="text"
-            name="date"
-            value={date}
-            placeholder="When did you Visit?"
-            onChange={handleDateChange}
-        />
-        <input 
-                    type="submit"
-                    name="submit"
-                    value="Create Visit"
-                />
+        <form onSubmit={handleSubmit}>
+            <h2>Add Visit</h2>
+            <input
+                type="text"
+                name="date"
+                value={date}
+                placeholder="When did you Visit?"
+                onChange={handleDateChange}
+            />
+            <input 
+                type="submit"
+                name="submit"
+                value="Create Visit"
+            />
         </form>
         : null}
     </div>
