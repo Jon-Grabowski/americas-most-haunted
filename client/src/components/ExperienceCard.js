@@ -7,9 +7,10 @@ function ExperienceCard({visit}) {
     // const[ deleteExperience, setDeleteExperience ] = useState ("")
 
     function handleEdit(e) {
-            // setEditExperience(e.target.value)
-            // console.log(e.target.value)
-        }
+        // setEditExperience(e.target.value)
+        // console.log(e.target.value)
+    }
+    
     function handleDelete() {
         console.log(visit.experience.id)
         fetch(`/experiences/${visit.experience.id}`, {
@@ -17,14 +18,6 @@ function ExperienceCard({visit}) {
         })
     }
     
-// function handleDelete() {
-//     fetch(`/experiences/${visit.experience.id}`, {
-//         method: "DELETE",     
-//     }) 
-//     .then((r)=> r.json())
-//     .then(() => console.log("HI!"))
-//     }
-
     return(
 
         <div className='ex-card-container'>
@@ -38,7 +31,14 @@ function ExperienceCard({visit}) {
                 <p>Scary Rating: {visit.experience.rating} Screams!</p>
             </div>
             <div className="edit-experience-btn">
-                <button onClick = {handleEdit}>Edit your experience 🦇 </button>
+                <button onClick = {handleEdit}>Submit Edit ⚰️  </button>
+                <input
+                type="text"
+                name="name"
+                placeholder="Edit experience here"
+                className="input-text"
+                onChange={handleEdit}
+                />
             </div>
             <div className="delete-experience-btn">
                 <button onClick = {handleDelete}>Delete your experience 🦇 </button>
