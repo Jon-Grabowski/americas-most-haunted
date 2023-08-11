@@ -14,7 +14,9 @@ This app allows you (when not logged in) to see the homepage, see all haunted lo
 
 ### Dependencies 
 
-- A modern web browser
+* A modern web browser
+* Python
+* React
 
 ### Installing
 
@@ -45,9 +47,6 @@ Then run:
 ```
 npm install
 ```
-
-
-
 
 ### Executing Program
 
@@ -81,10 +80,17 @@ You can the run the React app on [`localhost:3000`](http://localhost:3000) with:
 npm start client
 ```
 
+## Version History
+
+* 1.0
+    * Finished Application
+
 ## Authors
 
-Jessica Giraldo
-Jonathan Grabowski
-Amelia Freeman
+* Jessica Giraldo - GitHub.com/jpapa87
+* Jonathan Grabowski - GitHub.com/Jon-Grabowski
+* Amelia Freeman - GitHub.com/amsfreeman
 
+## Acknowledgments
 
+* [Flatiron School](https://flatironschool.com/)
