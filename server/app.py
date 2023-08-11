@@ -169,8 +169,6 @@ class ExperienceById(Resource):
         return response
 api.add_resource(ExperienceById, '/experiences/<int:id>')
 
-
-
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -186,11 +184,11 @@ def login():
         return make_response({'error': 'name or password incorrect'}, 401)
 
 # TO GRAB USER IF IN SESSION
-@app.route('/getUser', methods=['GET'])
-def getUser():
+@app.route('/authorized', methods=['GET'])
+def authorize():
     try:
         user = User.query.filter_by(id=session.get('user_id')).first()
-        response = make_response(user.to_dict(), 200)
+        response = make_response(user.to_dict(rules = ('-visits.user', '-visits.haunted_location', '-visits.experience')), 200)
         return response
     except:
         return make_response({

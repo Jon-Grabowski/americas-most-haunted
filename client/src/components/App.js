@@ -28,7 +28,7 @@ function App() {
   }
 
   const fetchUser = () => {
-    fetch("/getUser").then((resp) => {
+    fetch('/authorized').then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user));
       }
