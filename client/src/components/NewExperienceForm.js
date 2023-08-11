@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 
 function NewExperienceForm({house, user}) {
 
+    const history = useHistory()
+
     const [body, setBody] = useState('')
     const [scaryLevel, setScaryLevel] = useState(null)
+
     
-    
+
     const visitIdArray = house.visits.map((visit) => {
         if (visit.user.id === user.id) {
             console.log(visit.id)
@@ -27,11 +31,13 @@ function NewExperienceForm({house, user}) {
             rating: scaryLevel,
             visit_id: visitIdArray[1]
         }
+        console.log(newExp)
         fetch('/experiences', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newExp)
         }).then(r => r.json()).then(exp => console.log(exp))
+        // history.go(0)
     }
     return(
         <div>
@@ -49,7 +55,7 @@ function NewExperienceForm({house, user}) {
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="4">5</option>
+                    <option value="5">5</option>
                 </select>
                 <input 
                     type="submit"

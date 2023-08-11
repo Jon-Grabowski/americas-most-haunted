@@ -8,7 +8,6 @@ function HauntedHouseDetail({user}) {
     const [house, setHouse] = useState({'visits': []})
     const [hasVisited, setHasVisited] = useState(false)
     const [userExp, setUserExp] = useState(false)
-    const [expForm, setExpForm] = useState(false)
 
     
     useEffect(()=>{
@@ -27,7 +26,7 @@ function HauntedHouseDetail({user}) {
                 }
             })
         }
-    },[])
+    },[])   
 
     return (
         <div>
@@ -47,8 +46,6 @@ function HauntedHouseDetail({user}) {
                     : <p>You Have Not Visited This Location</p>
                 :null
                 }
-                {expForm ?
-                <p>The Form</p> : null}
             </div>
             <div>
                 <ExperienceList house={house} setUserExp={setUserExp} user={user}/>

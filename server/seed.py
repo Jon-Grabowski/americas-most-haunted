@@ -46,12 +46,12 @@ if __name__ == '__main__':
         print("Seeding visits...")
         #Visit Seed
         v1 = Visit(date = '12/22/2013', user_id = 1, haunted_location_id = 1)
-        v2 = Visit(date = '10/13/2015', user_id = 2, haunted_location_id = 3)
-        v3 = Visit(date = '10/15/2016', user_id = 3, haunted_location_id = 4)
-        v4 = Visit(date = '10/16/2017', user_id = 2, haunted_location_id = 2)
+        v2 = Visit(date = '10/13/2015', user_id = 1, haunted_location_id = 2)
+        v3 = Visit(date = '10/15/2016', user_id = 2, haunted_location_id = 2)
+        v4 = Visit(date = '10/16/2017', user_id = 2, haunted_location_id = 4)
         v5 = Visit(date = '10/21/2018', user_id = 3, haunted_location_id = 1)
-        v6 = Visit(date = '10/25/2019', user_id = 1, haunted_location_id = 1)
-        v7 = Visit(date = '10/17/2022', user_id = 1, haunted_location_id = 2)
+        v6 = Visit(date = '10/25/2019', user_id = 3, haunted_location_id = 3)
+        v7 = Visit(date = '10/17/2022', user_id = 1, haunted_location_id = 3)
 
         visits = [v1, v2, v3, v4, v5, v6, v7]
         db.session.add_all(visits)

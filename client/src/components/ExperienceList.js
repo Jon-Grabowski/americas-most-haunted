@@ -1,6 +1,8 @@
 import ExperienceCard from "./ExperienceCard";
 
 function ExperienceList({house, user, setUserExp}) {
+
+    
     const experienceList = house.visits.map((visit) => {
         if (visit.experience) {
             return(
