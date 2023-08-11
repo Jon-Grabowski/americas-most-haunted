@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 :root {
   --bg: #ffffff;
@@ -41,6 +42,7 @@ body {
   font-family: 'Creepster', cursive; 
   font-size: 18px;
   text-align: center;
+  /* background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg '); */
 }
 
 .haunted-house-card {
@@ -93,35 +95,72 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   place-content: center;
-  background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg');
+  /* background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0; 
+  margin-left: 0%; 
   padding: 0;
   align-content: space-around;
   text-shadow: 1px 1px 0px rgb(0, 0, 0); 
   /* text-shadow: 1px 1px 2px rgb(203, 171, 174), 1px 1px 2px rgba(255, 255, 255, 0.5); */
 }
 
+
+.homepage-wrapper{
+  border: rgb(246, 244, 244) solid 1px;
+  background-image: url('https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg');
+}
+/* .home-image{
+  background-size:contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  min-height: 0vh; /* Ensures the background covers the entire viewport height */
+  /* margin: 0;
+  padding: 0;
+} */ */
+
+/* .about-title{
+  float:center;
+  font-family: 'Creepster', cursive;
+  border: 2px solid #bc0808; 
+  /* align-items: baseline; */
+  /* align-content: space-between; */
+/* } */ */
+
+.about-info{
+  float:right;
+  width: 100%; /* Adjust the width as needed */
+  border: 2px solid #bc0808; /* Example border styling */
+  padding: 10px; /* Example padding */
+  box-sizing: border-box;
+  margin-left: 100%;
+  /* margin-top: 50%; */
+}
+
 .haunted-house-image-detail{
   font-size: 14px;
-  border: rgb(240, 8, 8) solid 1px;
+  /* border: rgb(240, 8, 8) solid 1px; */
   
 }
 
 .house-description{
-  border: rgb(255, 0, 0) solid 1px;
-  font-size: 18px;
-  text-align: left;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* border: rgb(255, 0, 0) solid 1px; */
+  font-size: 30px;
+  text-align: center;
+  font-family:'Creepster', cursive;
+  position:static;
+  margin-left: 0%;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
 }
 
 #nav-user-name{
   margin-right: 10px;
 }
 
-.list-of-locations{
+/* .list-of-locations{
   color: rgba(216, 168, 168, 0.757);
   width: 100px;
   height: 190px;
@@ -132,7 +171,7 @@ body {
   margin: 20px;
   flex-direction: column;
   display: inline-flex;
-}
+} */
 
 
 .nav-bar-dropdown {
@@ -157,17 +196,16 @@ body {
   margin-bottom: 13px;
   margin-left: 25%;
   margin-right: 25%;
-  
+  font-family: 'Creepster', cursive;
+  font-size: 25px;
 }
 
 .ex-card-header{
   border: rgb(255, 0, 0) solid 1px;
-  font-size: 14px;
+  font-size: 25px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: left;
 }
 
-.edit-experience-btn{
-
-}
-
+/* Original Skeleton picture
+https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?cs=srgb&dl=pexels-ahmed-adly-1270184.jpg&fm=jpg */

@@ -15,6 +15,7 @@ function ExperienceCard({visit}) {
 
     let history = useHistory()
 
+
     function handleBodyChange(e) {
         setBody(e.target.value)
     }
@@ -38,6 +39,7 @@ function ExperienceCard({visit}) {
         history.go(0)
     }
 
+
     function handleDelete() {
         console.log(visit.experience.id)
         fetch(`/experiences/${visit.experience.id}`, {
@@ -59,6 +61,7 @@ function ExperienceCard({visit}) {
                 <p>Scary Rating: {visit.experience.rating} Screams!</p>
             </div>
             <div className="edit-experience-btn">
+
                 <button onClick = {handleShowForm}>Edit your experience 🦇 </button>
                 {showForm ?
                     <form onSubmit={handleSubmit}>
@@ -83,6 +86,7 @@ function ExperienceCard({visit}) {
                             value="Edit"
                         />
                     </form> : null}
+
             </div>
             <div className="delete-experience-btn">
                 <button onClick = {handleDelete}>Delete your experience 🦇 </button>
