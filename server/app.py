@@ -22,9 +22,9 @@ def index():
 class Users(Resource):
 
     def post(self):
-        data = request.json
+        data = request.get_json()
         try:
-            new_user = User(
+            user = User(
             username = data['username'],
             email = data['email'],
             age = data['age'],
@@ -34,9 +34,12 @@ class Users(Resource):
             response = make_response({"errors": [str(e)]}, 400)
             return response
 
-        db.session.add(new_user)
+        db.session.add(user)
         db.session.commit()
-        return make_response(new_user.to_dict(rules = ('-visits', )), 201)
+
+        session['user.id'] = user.id
+
+        return make_response(user.to_dict(rules = ('-visits', )), 201)
 
 api.add_resource(Users, '/users')
 
@@ -85,7 +88,6 @@ class VisitByHouse(Resource):
 api.add_resource(VisitByHouse, '/visit_by_house/<int:house_id>')
 
 class Visits(Resource):
-    
     def post(self):
         data = request.json
         try:
@@ -142,7 +144,7 @@ class ExperienceById(Resource):
 
         for attr in data: 
             try:
-                setattr(attr, data, data[attr])
+                setattr(experience, attr, data[attr])
             except ValueError as e:
                 response = make_response({"errors": [str(e)]})
                 return response
@@ -183,23 +185,22 @@ def login():
     except:
         return make_response({'error': 'name or password incorrect'}, 401)
 
+# TO GRAB USER IF IN SESSION
+@app.route('/getUser', methods=['GET'])
+def getUser():
+    try:
+        user = User.query.filter_by(id=session.get('user_id')).first()
+        response = make_response(user.to_dict(), 200)
+        return response
+    except:
+        return make_response({
+            "error": "User not found"
+        }, 404)
+    
 @app.route('/logout', methods=['DELETE'])
 def logout():
     session['user_id'] = None
     return make_response('', 204)
-
-# TO GRAB USER IF IN SESSION
-# @app.route('/getUser', methods=['GET'])
-# def getUser():
-#     try:
-#         user = User.query.filter_by(id=session.get('user_id')).first()
-#         response = make_response(user.to_dict(), 200)
-#         return response
-#     except:
-#         return make_response({
-#             "error": "User not found"
-#         }, 404)
-
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
