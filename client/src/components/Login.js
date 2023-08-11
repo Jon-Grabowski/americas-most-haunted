@@ -51,21 +51,21 @@ function Login({setUser}) {
                 onSubmit={handleSubmit}
             >
                 <h2>Log In</h2>
-                <input
+                <input className="username"
                     type="text"
                     name="username"
                     value={username}
                     placeholder="Enter Username"
                     onChange={handleUsernameChange}
                 />
-                <input 
+                <input className="password"
                     type="password"
                     name="password"
                     value={password}
                     placeholder="Enter Password"
                     onChange={handlePasswordChange}
                 />
-                <input 
+                <input className="login"
                     type="submit"
                     name="submit"
                     value="Login"

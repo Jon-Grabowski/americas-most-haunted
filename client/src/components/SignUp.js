@@ -62,39 +62,39 @@ function SignUp({setUser}) {
     
     return (
         <>
-            <form
+            <form 
                 onSubmit={handleSubmit}
             >
                 <h2>Create A New User</h2>
-                <input
+                <input className="create-username"
                     type="text"
                     name="username"
                     value={username}
                     placeholder="Create Username"
                     onChange={handleUsernameChange}
                 />
-                <input 
+                <input className="create-password"
                     type="password"
                     name="password"
                     value={password}
                     placeholder="Create Password"
                     onChange={handlePasswordChange}
                 />
-                <input 
+                <input className="enter-email"
                     type="text"
                     name="email"
                     value={email}
                     placeholder="Enter Email"
                     onChange={handleEmailChange}
                 />
-                <input 
+                <input className="enter-age"
                     type="text"
                     name="age"
                     value={age}
                     placeholder="Enter Age"
                     onChange={handleAgeChange}
                 />
-                <input 
+                <input className="create-new-user"
                     type="submit"
                     name="submit"
                     value="Create New User"
